@@ -3,10 +3,10 @@ import fs from "fs"
 import dotenv from "dotenv"
 import express from "express";
 
-dotenv.config();
 dotenv.config({
     path: ".env.local"
-})
+});
+dotenv.config();
 
 const mqttUrl = process.env.MQTT_URL ?? "mqtt://root:root@127.0.0.1:1883";
 const mqttTopic = process.env.MQTT_TOPIC ?? "monitoring/mqtt_exporter";
