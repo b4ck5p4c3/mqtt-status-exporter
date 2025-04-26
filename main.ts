@@ -23,7 +23,8 @@ let mqttSucceed = true;
 let mqttRttSeconds = 0;
 
 app.get("/metrics", (req, res) => {
-    res.end("# HELP mqtt_succeed Has RTT succeed (1 - ok, 0 - failed)\n" + 
+    res.header("content-type", "text/plain; version=0.0.4; charset=utf-8")
+       .end("# HELP mqtt_succeed Has RTT succeed (1 - ok, 0 - failed)\n" + 
             "# TYPE mqtt_succeed gauge\n" +
             `mqtt_succeed ${mqttSucceed ? "1" : "0"}\n` + 
             "# HELP mqtt_rtt_seconds MQTT pub-recv roundtrip time\n" +
